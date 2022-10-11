@@ -1,19 +1,34 @@
 #!/usr/bin/python3
-"""Square module - assigns size of the square and
-checks for type and value"""
+"""Defines a class Square"""
 
 
 class Square:
-    """defines a square with private instance attribute size"""
+    """Represents a square
+
+    Attributes:
+        __size (int): size of a side of the square
+    """
     def __init__(self, size=0):
-        """assigns size of the square and checks for type and value"""
-        
-        if not isinstance(size, int):
+        """initializes the square
+
+        Args:
+            size (int): size of a side of the square
+
+        Returns:
+            None
+        """
+        if type(size) is not int:
             raise TypeError("size must be an integer")
-        if size < 0:
-            raise ValueError("size must be >= 0")
-        self.__size = int(size)
+        else:
+            if size < 0:
+                raise ValueError("size must be >= 0")
+            else:
+                self.__size = size
 
     def area(self):
-        """public instance method returns current sqr area"""
-        return self.__size ** 2
+        """calculates the square's area
+
+        Returns:
+            The area of the square
+        """
+        return (self.__size) ** 2
